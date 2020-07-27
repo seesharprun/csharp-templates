@@ -9,7 +9,7 @@ jobs:
   continuous_integration:
     name: Continuous Integration
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/dotnet/sdk:5
+    container: mcr.microsoft.com/dotnet/sdk:5.0
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
   continuous_deployment:
     name: Continous Deployment
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/dotnet/sdk:5
+    container: mcr.microsoft.com/dotnet/sdk:5.0
     env:
       api_key: ${{secrets.nuget_api_key}}
     steps:
