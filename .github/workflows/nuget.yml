@@ -8,8 +8,8 @@ env:
 jobs:
   continuous_integration:
     name: Continuous Integration
+    runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/sdk:5
-    runs_on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -22,8 +22,8 @@ jobs:
           path: Preview.CSharp.Templates.${{env.version_number}}.nupkg
   continuous_deployment:
     name: Continous Deployment
+    runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/sdk:5
-    runs_on: ubuntu-latest
     env:
       api_key: ${{secrets.nuget_api_key}}
     steps:
