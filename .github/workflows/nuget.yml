@@ -19,7 +19,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: nuget-package
-          path: Preview.CSharp.Templates.${{env.version_number}}.nupkg
+          path: out/Preview.CSharp.Templates.${{env.version_number}}.nupkg
   continuous_deployment:
     name: Continous Deployment
     runs-on: ubuntu-latest
