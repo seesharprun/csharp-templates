@@ -22,6 +22,7 @@ jobs:
           path: out/Preview.CSharp.Templates.${{env.version_number}}.nupkg
   continuous_deployment:
     name: Continous Deployment
+    needs: continuous_integration
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/sdk:5.0
     env:
