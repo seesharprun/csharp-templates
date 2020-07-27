@@ -6,9 +6,10 @@ on:
 env:
   version_number: 1.0.${{github.run_number}}
 jobs:
-  ci:
+  continuous_integration:
     name: Continuous Integration
     container: mcr.microsoft.com/dotnet/sdk:5
+    runs_on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -19,9 +20,10 @@ jobs:
         with:
           name: nuget-package
           path: Preview.CSharp.Templates.${{env.version_number}}.nupkg
-  cd:
+  continuous_deployment:
     name: Continous Deployment
     container: mcr.microsoft.com/dotnet/sdk:5
+    runs_on: ubuntu-latest
     env:
       api_key: ${{secrets.nuget_api_key}}
     steps:
