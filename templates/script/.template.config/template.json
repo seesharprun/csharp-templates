@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "SeeSharpRun.NET",
+    "classifications": [
+        "Common",
+        "Console",
+        "C#9"
+    ],
+    "identity": "Preview.CSharp.Templates.TopLevelProgram",
+    "name": "Top-level program",
+    "shortName": "script",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    }
+}

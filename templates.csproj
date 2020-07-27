@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageType>Template</PackageType>
+    <PackageId>Preview.CSharp.Templates</PackageId>
+    <Title>C# 9 Preview Templates</Title>
+    <Authors>seesharprun</Authors>
+    <Description>Templates to use when creating projects using a preview version of .NET 5 &amp; C# 9</Description>
+    <PackageTags>dotnet-new;templates;seesharprun</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>    
+    <PackageIcon>logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/seesharprun/csharp-templates</RepositoryUrl>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="logo.png" Pack="true" PackagePath="" />
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+</Project>
