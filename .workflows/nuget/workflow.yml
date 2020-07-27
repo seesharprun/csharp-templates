@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+env:
+  version_number: 1.0.${{github.run_number}}
 jobs:
   ci:
     name: Continuous Integration
@@ -11,19 +13,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Packge NuGet Project
-        run: dotnet pack -p:PackageVersion=1.1.2 --output out
+        run: dotnet pack -p:PackageVersion=${{env.version_number}} --output out
       - name: Store NuGet Package as Artifact
         uses: actions/upload-artifact@v2
         with:
           name: nuget-package
-          path: Preview.CSharp.Templates.1.1.2.nupkg
+          path: Preview.CSharp.Templates.${{env.version_number}}.nupkg
   cd:
     name: Continous Deployment
     container: mcr.microsoft.com/dotnet/sdk:5
+    env:
+      api_key: ${{secrets.nuget_api_key}}
     steps:
       - name: Download Artifact Containing NuGet Package
         uses: actions/download-artifact@v2
         with:
           name: nuget-package
       - name: Push to NuGet
-        run: dotnet nuget push Preview.CSharp.Templates.1.1.2.nupkg --source https://api.nuget.org/v3/index.json --api-key
+        run: dotnet nuget push Preview.CSharp.Templates.${{env.version_number}}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{env.api_key}}
