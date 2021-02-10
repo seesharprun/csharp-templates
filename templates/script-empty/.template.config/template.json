@@ -6,9 +6,9 @@
         "Console",
         "C#9"
     ],
-    "identity": "Preview.CSharp.Templates.EmptyTopLevelProgram",
-    "name": "Empty Top-level program",
-    "shortName": "script-empty",
+    "identity": "Preview.CSharp.Templates.BlankTopLevelProgram",
+    "name": "Blank Top-level program",
+    "shortName": "blankscript",
     "tags": {
         "language": "C#",
         "type": "project"
